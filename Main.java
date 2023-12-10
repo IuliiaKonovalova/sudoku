@@ -39,22 +39,23 @@ public class SudokuSolver {
   }
 
   private static boolean allowedInRow(int[][] board, int number, int row) {
-    for (int i = 0; i < GRID_SIZE; i++) {
-      if (board[row][i] == number) {
-        return true;
-      }
-    }
-    return false;
-
+    // for (int i = 0; i < GRID_SIZE; i++) {
+    //   if (board[row][i] == number) {
+    //     return true;
+    //   }
+    // }
+    // return false;
+    return IntStream.range(0, GRID_SIZE).noneMatch(column -> board[row][column] == number);
   }
 
   private static boolean allowedInColumn(int[][] board, int number, int column) {
-    for (int i = 0; i < GRID_SIZE; i++) {
-      if (number == board[column][i]) {
-        return true;
-      }
-    }
-    return false;
+    // for (int i = 0; i < GRID_SIZE; i++) {
+    //   if (number == board[column][i]) {
+    //     return true;
+    //   }
+    // }
+    // return false;
+    return IntStream.range(0, GRID_SIZE).noneMatch(row -> board[row][column] == number);
   }
 
   private static boolean allowedInBox(int[][] board, int number, int row, int column) {
