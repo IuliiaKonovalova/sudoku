@@ -20,7 +20,17 @@ public class SudokuSolver {
       {0, 2, 0, 0, 0, 0, 1, 0, 0}
     };
 
+    System.out.println("Initial board");
+    printBoard(board);
+    System.out.println();
 
+    if (solveBoard(board)) {
+      System.out.println("Solved successfully");
+    }
+    else {
+      System.out.println("Unsolvable");
+    }
+    printBoard(board);
   }
 
   private static void printBoard(int[][] board) {
